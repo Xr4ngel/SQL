@@ -110,7 +110,7 @@ ORDER BY Year, Month;
 -- Question 9
 
 
-SELECT D.Name, E.BusinessEntityID, P.FirstName + ' ' + P.LastName as LastName,  E.HireDate, EndDate,
+SELECT D.Name, E.BusinessEntityID, P.FirstName + ' ' + P.LastName as "Employee's Full Name",  E.HireDate, EndDate,
 DATEDIFF(M, HireDate, GETDATE()) AS "Seniority",
 LAG(FirstName + ' ' + LastName, 1)OVER(PARTITION BY D.DepartmentID ORDER BY E.HireDate) AS "PreviousEmpName",
 LAG(HireDate, 1)OVER(PARTITION BY D.DepartmentID ORDER BY HireDate) AS "PreviousEmpHDate",
